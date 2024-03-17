@@ -1,0 +1,16 @@
+<app-common-table
+  class="page-list__item"
+  [columns]="serviceRequestColumn"
+  [data]="serviceRequestColumnsHeaderData"
+  [headerMode]="true"
+>
+</app-common-table>
+@for (user of users(); track user.username) {
+  <app-common-table
+    class="page-list__item"
+    [data]="user"
+    [columns]="serviceRequestColumn"
+    (rowClick)="onRowClick(user)"
+  >
+  </app-common-table>
+}

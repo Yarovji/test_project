@@ -1,0 +1,84 @@
+<div class="header-wrap">
+  <div>
+    {{
+      createNewUser()
+        ? "Create new user"
+        : selectedUser()?.first_name + " " + selectedUser()?.last_name
+    }}
+  </div>
+  <div class="close" (click)="close.emit()">x</div>
+</div>
+<form [formGroup]="form">
+  <app-form-input
+    [errorsMessages]="{
+      required: 'You must enter the Username.',
+      userNameAlreadyExists: 'User name already exists'
+    }"
+    label="Username*"
+    formControlName="username"
+  ></app-form-input>
+  <app-form-input
+    [errorsMessages]="{
+      required: 'You must enter the First name.'
+    }"
+    label="First name*"
+    formControlName="first_name"
+  ></app-form-input>
+  <app-form-input
+    [errorsMessages]="{
+      required: 'You must enter the Last name'
+    }"
+    label="Last name*"
+    formControlName="last_name"
+  ></app-form-input>
+
+  <app-form-input
+    label="Email*"
+    formControlName="email"
+    placeholder="@"
+    appEmailValidator
+    [errorsMessages]="{
+      required: 'You must enter the email.',
+      invalidEmail: 'Enter a valid email'
+    }"
+  ></app-form-input>
+  <label class="type-label">Type*</label>
+  <select class="type-select" formControlName="user_type">
+    <option value="Administrator">Administrator</option>
+    <option value="Driver">Driver</option>
+  </select>
+  <app-form-input
+    [type]="inputTypesEnum.Password"
+    label="Password*"
+    formControlName="password"
+    [errorsMessages]="{
+      required: 'You must enter the password.',
+      minLength: 'min length 8',
+      pattern: 'at least one number and one letter',
+      notSamePasswords: 'not same passwords'
+    }"
+  ></app-form-input>
+  <app-form-input
+    [type]="inputTypesEnum.Password"
+    label="Repeat password*"
+    formControlName="repeatPassword"
+    [errorsMessages]="{
+      required: 'You must enter the Repeat password.',
+      minLength: 'min length 8',
+      notSamePasswords: 'not same passwords',
+      pattern: 'at least one number and one letter'
+    }"
+  ></app-form-input>
+</form>
+@if (selectedUser()) {
+  <div class="btn-wrap">
+    <app-common-button (btnClick)="deleteUser.emit()" btnType="red"
+      >Delete</app-common-button
+    >
+    <app-common-button (btnClick)="saveEdit()">Save</app-common-button>
+  </div>
+} @else {
+  <app-common-button class="create-btn" (btnClick)="createUser()"
+    >Create</app-common-button
+  >
+}

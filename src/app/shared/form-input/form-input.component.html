@@ -1,0 +1,23 @@
+<div class="form-input" [class.form-input--has-errors]="hasControlError">
+  <p class="form-input__label">
+    {{ label() }}
+  </p>
+  <div class="form-input__input-wrapper">
+    <input
+      [type]="inputType()"
+      class="form-input__input"
+      [(ngModel)]="value"
+      [placeholder]="placeholder()"
+    />
+  </div>
+</div>
+
+@if (errorKeys.length) {
+  @for (key of errorKeys; track $index) {
+    @if (errorsMessages()?.[key] && hasControlError) {
+      <p class="form-input--error">
+        {{ errorsMessages()?.[key] }}
+      </p>
+    }
+  }
+}

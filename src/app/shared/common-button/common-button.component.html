@@ -1,0 +1,7 @@
+<button
+  class="common-btn"
+  [class.common-btn--red]="btnType() === 'red'"
+  (click)="handleClick()"
+>
+  <ng-content></ng-content>
+</button>

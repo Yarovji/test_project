@@ -1,0 +1,4 @@
+export enum HTTP_STATUS_CODE {
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+}

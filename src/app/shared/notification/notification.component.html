@@ -1,0 +1,8 @@
+@if (!hidden()) {
+  <section
+    class="notification"
+    [class.notification--error]="type() === 'error'"
+  >
+    {{ content() }}
+  </section>
+}

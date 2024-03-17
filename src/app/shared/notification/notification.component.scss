@@ -1,0 +1,14 @@
+.notification {
+  background: #66bb6a;
+  color: white;
+  position: absolute;
+  right: 48px;
+  top: 48px;
+  width: 200px;
+  padding: 24px;
+  border-radius: 8px;
+
+  &--error {
+    background: #ef7da0;
+  }
+}

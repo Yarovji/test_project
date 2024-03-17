@@ -1,0 +1,27 @@
+.main-page {
+  display: flex;
+  background: #eef0f8;
+  padding: 80px 48px;
+
+  .table {
+    width: 70%;
+    margin-right: 24px;
+
+    &__create-btn-wrap {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 16px;
+    }
+
+    &__user-list-wrap {
+      background: white;
+    }
+  }
+
+  .add-edit-user {
+    width: 30%;
+    background: white;
+    padding: 20px;
+    margin-top: 63px;
+  }
+}

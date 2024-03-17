@@ -1,0 +1,38 @@
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  .close {
+    cursor: pointer;
+  }
+}
+
+.type-label {
+  margin: 0;
+  padding-bottom: 4px;
+  font-size: 14px;
+  display: block;
+}
+
+.type-select {
+  border: none;
+  width: 100%;
+  height: 36px;
+  background: #f3f6f9;
+  margin-bottom: 12px;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-btn {
+  display: flex;
+  justify-content: center;
+}

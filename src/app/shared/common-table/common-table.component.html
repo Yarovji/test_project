@@ -1,0 +1,18 @@
+<div
+  class="common-table"
+  [class.common-table--active-row]="!headerMode()"
+  [class.common-table--header-mode]="headerMode()"
+  (click)="onRowClick()"
+>
+  @if (columns().length) {
+    <div class="common-table__main-content">
+      @for (column of columns(); track $index) {
+        <div [style.flex-basis]="column.width + 'px'">
+          <div class="common-table__item">
+            {{ data()?.[column.property] }}
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
